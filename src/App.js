@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navbar from "./components/Navbar";
+import Main from "./components/Main";
+import Card from "./components/Card"
+import appData from "./data/appData";
 
-function App() {
+export default function App() {
+  // const date = new Date()
+  // const hours = date.getHours()
+  // let time
+  // if(hours < 12) {
+  //   time = "morning"
+  // } else if (hours >=12 && hours <= 17) {
+  //   time = "afternoon"
+  // } else {
+  //   time = "night"
+  // }
+  const appContents = appData.map(data => {
+    return (
+      <Card 
+        key={data.id}
+        // data={data}
+        {...data}
+      />
+    )
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <h1>Good {time}</h1>
+    <div>
+      <Navbar />
+      <Main />
+      <div class="container p-0 d-flex overflow">
+        {appContents}
+      </div>
+      {/* <Card 
+        img="images/Hina.jpg"
+        rating="5.0"
+        reviewCount="6"
+        country="USA"
+        title="Life lessons with Katie Zaferes"
+        price="136"
+      /> */}
     </div>
-  );
+  )
 }
-
-export default App;

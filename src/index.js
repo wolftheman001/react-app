@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+// import App from "./App";
+// import AppProps from "./AppProps";
+import AppJokes from "./AppJokes";
+import "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const num = [1,2,3,4,5]
+const squared = num.map(x => x*x)
+console.log(squared)
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const names = ["alice", "bob", "charlie", "danielle"]
+const capital = names.map((cap) => 
+    cap[0].toUpperCase() + cap.substring(1)
+)
+console.log(capital)
+
+const pokemons = ["Bulbasaur", "Charmander", "Squirtle"]
+const ptags = pokemons.map((pt) =>
+    `<p>${pt}</p>`
+)
+console.log(ptags)
+
+ReactDOM.render(<AppJokes />, document.getElementById("root"))
+// ReactDOM.render(<AppProps />, document.getElementById("root"))
+// ReactDOM.render(<AppJokes />, document.getElementById("root"))
